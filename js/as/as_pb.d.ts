@@ -400,10 +400,10 @@ export class ReEncryptDeviceQueueItemsRequest extends jspb.Message {
   getFCntStart(): number;
   setFCntStart(value: number): void;
 
-  hasItems(): boolean;
-  clearItems(): void;
-  getItems(): ReEncryptDeviceQueueItem | undefined;
-  setItems(value?: ReEncryptDeviceQueueItem): void;
+  clearItemsList(): void;
+  getItemsList(): Array<ReEncryptDeviceQueueItem>;
+  setItemsList(value: Array<ReEncryptDeviceQueueItem>): void;
+  addItems(value?: ReEncryptDeviceQueueItem, index?: number): ReEncryptDeviceQueueItem;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ReEncryptDeviceQueueItemsRequest.AsObject;
@@ -420,15 +420,15 @@ export namespace ReEncryptDeviceQueueItemsRequest {
     devEui: Uint8Array | string,
     devAddr: Uint8Array | string,
     fCntStart: number,
-    items?: ReEncryptDeviceQueueItem.AsObject,
+    itemsList: Array<ReEncryptDeviceQueueItem.AsObject>,
   }
 }
 
 export class ReEncryptDeviceQueueItemsResponse extends jspb.Message {
-  hasItems(): boolean;
-  clearItems(): void;
-  getItems(): ReEncryptedDeviceQueueItem | undefined;
-  setItems(value?: ReEncryptedDeviceQueueItem): void;
+  clearItemsList(): void;
+  getItemsList(): Array<ReEncryptedDeviceQueueItem>;
+  setItemsList(value: Array<ReEncryptedDeviceQueueItem>): void;
+  addItems(value?: ReEncryptedDeviceQueueItem, index?: number): ReEncryptedDeviceQueueItem;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ReEncryptDeviceQueueItemsResponse.AsObject;
@@ -442,7 +442,7 @@ export class ReEncryptDeviceQueueItemsResponse extends jspb.Message {
 
 export namespace ReEncryptDeviceQueueItemsResponse {
   export type AsObject = {
-    items?: ReEncryptedDeviceQueueItem.AsObject,
+    itemsList: Array<ReEncryptedDeviceQueueItem.AsObject>,
   }
 }
 

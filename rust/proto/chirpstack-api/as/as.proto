@@ -261,11 +261,11 @@ message ReEncryptDeviceQueueItemsRequest {
     uint32 f_cnt_start = 3;
 
     // Items to re-encrypt.
-    ReEncryptDeviceQueueItem items = 4;
+    repeated ReEncryptDeviceQueueItem items = 4;
 }
 
 message ReEncryptDeviceQueueItemsResponse {
-    ReEncryptedDeviceQueueItem items = 1;
+    repeated ReEncryptedDeviceQueueItem items = 1;
 }
 
 message ReEncryptDeviceQueueItem {

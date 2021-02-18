@@ -3030,12 +3030,19 @@ proto.as.HandleTxAckRequest.prototype.hasTxInfo = function() {
  * @constructor
  */
 proto.as.ReEncryptDeviceQueueItemsRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.as.ReEncryptDeviceQueueItemsRequest.repeatedFields_, null);
 };
 goog.inherits(proto.as.ReEncryptDeviceQueueItemsRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.as.ReEncryptDeviceQueueItemsRequest.displayName = 'proto.as.ReEncryptDeviceQueueItemsRequest';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.as.ReEncryptDeviceQueueItemsRequest.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3067,7 +3074,8 @@ proto.as.ReEncryptDeviceQueueItemsRequest.toObject = function(includeInstance, m
     devEui: msg.getDevEui_asB64(),
     devAddr: msg.getDevAddr_asB64(),
     fCntStart: msg.getFCntStart(),
-    items: (f = msg.getItems()) && proto.as.ReEncryptDeviceQueueItem.toObject(includeInstance, f)
+    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+    proto.as.ReEncryptDeviceQueueItem.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3119,7 +3127,8 @@ proto.as.ReEncryptDeviceQueueItemsRequest.deserializeBinaryFromReader = function
     case 4:
       var value = new proto.as.ReEncryptDeviceQueueItem;
       reader.readMessage(value,proto.as.ReEncryptDeviceQueueItem.deserializeBinaryFromReader);
-      msg.setItems(value);
+      msg.getItemsList().push(value);
+      msg.setItemsList(msg.getItemsList());
       break;
     default:
       reader.skipField();
@@ -3180,9 +3189,9 @@ proto.as.ReEncryptDeviceQueueItemsRequest.prototype.serializeBinaryToWriter = fu
       f
     );
   }
-  f = this.getItems();
-  if (f != null) {
-    writer.writeMessage(
+  f = this.getItemsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       4,
       f,
       proto.as.ReEncryptDeviceQueueItem.serializeBinaryToWriter
@@ -3294,32 +3303,25 @@ proto.as.ReEncryptDeviceQueueItemsRequest.prototype.setFCntStart = function(valu
 
 
 /**
- * optional ReEncryptDeviceQueueItem items = 4;
- * @return {proto.as.ReEncryptDeviceQueueItem}
+ * repeated ReEncryptDeviceQueueItem items = 4;
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.as.ReEncryptDeviceQueueItem>}
  */
-proto.as.ReEncryptDeviceQueueItemsRequest.prototype.getItems = function() {
-  return /** @type{proto.as.ReEncryptDeviceQueueItem} */ (
-    jspb.Message.getWrapperField(this, proto.as.ReEncryptDeviceQueueItem, 4));
+proto.as.ReEncryptDeviceQueueItemsRequest.prototype.getItemsList = function() {
+  return /** @type{!Array.<!proto.as.ReEncryptDeviceQueueItem>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.as.ReEncryptDeviceQueueItem, 4));
 };
 
 
-/** @param {proto.as.ReEncryptDeviceQueueItem|undefined} value  */
-proto.as.ReEncryptDeviceQueueItemsRequest.prototype.setItems = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+/** @param {Array.<!proto.as.ReEncryptDeviceQueueItem>} value  */
+proto.as.ReEncryptDeviceQueueItemsRequest.prototype.setItemsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
-proto.as.ReEncryptDeviceQueueItemsRequest.prototype.clearItems = function() {
-  this.setItems(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return{!boolean}
- */
-proto.as.ReEncryptDeviceQueueItemsRequest.prototype.hasItems = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.as.ReEncryptDeviceQueueItemsRequest.prototype.clearItemsList = function() {
+  this.setItemsList([]);
 };
 
 
@@ -3335,12 +3337,19 @@ proto.as.ReEncryptDeviceQueueItemsRequest.prototype.hasItems = function() {
  * @constructor
  */
 proto.as.ReEncryptDeviceQueueItemsResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.as.ReEncryptDeviceQueueItemsResponse.repeatedFields_, null);
 };
 goog.inherits(proto.as.ReEncryptDeviceQueueItemsResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.as.ReEncryptDeviceQueueItemsResponse.displayName = 'proto.as.ReEncryptDeviceQueueItemsResponse';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.as.ReEncryptDeviceQueueItemsResponse.repeatedFields_ = [1];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3369,7 +3378,8 @@ proto.as.ReEncryptDeviceQueueItemsResponse.prototype.toObject = function(opt_inc
  */
 proto.as.ReEncryptDeviceQueueItemsResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    items: (f = msg.getItems()) && proto.as.ReEncryptedDeviceQueueItem.toObject(includeInstance, f)
+    itemsList: jspb.Message.toObjectList(msg.getItemsList(),
+    proto.as.ReEncryptedDeviceQueueItem.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3409,7 +3419,8 @@ proto.as.ReEncryptDeviceQueueItemsResponse.deserializeBinaryFromReader = functio
     case 1:
       var value = new proto.as.ReEncryptedDeviceQueueItem;
       reader.readMessage(value,proto.as.ReEncryptedDeviceQueueItem.deserializeBinaryFromReader);
-      msg.setItems(value);
+      msg.getItemsList().push(value);
+      msg.setItemsList(msg.getItemsList());
       break;
     default:
       reader.skipField();
@@ -3449,9 +3460,9 @@ proto.as.ReEncryptDeviceQueueItemsResponse.prototype.serializeBinary = function(
  */
 proto.as.ReEncryptDeviceQueueItemsResponse.prototype.serializeBinaryToWriter = function (writer) {
   var f = undefined;
-  f = this.getItems();
-  if (f != null) {
-    writer.writeMessage(
+  f = this.getItemsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       1,
       f,
       proto.as.ReEncryptedDeviceQueueItem.serializeBinaryToWriter
@@ -3470,32 +3481,25 @@ proto.as.ReEncryptDeviceQueueItemsResponse.prototype.cloneMessage = function() {
 
 
 /**
- * optional ReEncryptedDeviceQueueItem items = 1;
- * @return {proto.as.ReEncryptedDeviceQueueItem}
+ * repeated ReEncryptedDeviceQueueItem items = 1;
+ * If you change this array by adding, removing or replacing elements, or if you
+ * replace the array itself, then you must call the setter to update it.
+ * @return {!Array.<!proto.as.ReEncryptedDeviceQueueItem>}
  */
-proto.as.ReEncryptDeviceQueueItemsResponse.prototype.getItems = function() {
-  return /** @type{proto.as.ReEncryptedDeviceQueueItem} */ (
-    jspb.Message.getWrapperField(this, proto.as.ReEncryptedDeviceQueueItem, 1));
+proto.as.ReEncryptDeviceQueueItemsResponse.prototype.getItemsList = function() {
+  return /** @type{!Array.<!proto.as.ReEncryptedDeviceQueueItem>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.as.ReEncryptedDeviceQueueItem, 1));
 };
 
 
-/** @param {proto.as.ReEncryptedDeviceQueueItem|undefined} value  */
-proto.as.ReEncryptDeviceQueueItemsResponse.prototype.setItems = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+/** @param {Array.<!proto.as.ReEncryptedDeviceQueueItem>} value  */
+proto.as.ReEncryptDeviceQueueItemsResponse.prototype.setItemsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
-proto.as.ReEncryptDeviceQueueItemsResponse.prototype.clearItems = function() {
-  this.setItems(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return{!boolean}
- */
-proto.as.ReEncryptDeviceQueueItemsResponse.prototype.hasItems = function() {
-  return jspb.Message.getField(this, 1) != null;
+proto.as.ReEncryptDeviceQueueItemsResponse.prototype.clearItemsList = function() {
+  this.setItemsList([]);
 };
 
 
